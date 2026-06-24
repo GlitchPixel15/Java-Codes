@@ -1,0 +1,77 @@
+import java.util.Scanner;
+public class waterIntake {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+
+		
+		System.out.println("----------------------------------------");
+		System.out.println("           DAILY WATER INTAKE           ");
+		System.out.println("----------------------------------------");
+		
+		System.out.print("How many days do you want to record?: ");
+		int numberOfDays = scanner.nextInt();
+		System.out.println("");
+		
+		double [] water = new double[numberOfDays];
+		
+		for(int i = 0; i < numberOfDays; i++) {
+			System.out.println("Enter water intake for day " +(i + 1)+ " (in liters): ");
+			water [i] = scanner.nextDouble();
+		}
+		System.out.println("");//For spacing :)
+		System.out.println("----------------------------------------");
+		System.out.println("       DAILY WATER INTAKE REPORT        ");
+		System.out.println("----------------------------------------");
+		System.out.println("");//For spacing :)
+		
+		double highest = 0;
+		double lowest = 0;
+		double sum = 0;
+		
+		for(int i = 0; i < numberOfDays; i++) {
+			
+			double liters = water[0];
+			String status;
+			
+			if(liters>= 3.0) {
+				status = "Excellent Hydration";
+			}
+			else if(liters >=2.0) {
+				status = "Good Hydration";
+			}
+			else if(liters>=1.0) {
+				status = "Fair Hydration";
+			}
+			else {
+				status = "Poor Hydratiom";
+			}
+			
+			System.out.printf("Day %d: %.1f L  →  %s%n", (i + 1), liters, status);
+			
+			if(liters > highest) {
+				highest = liters;
+			}
+			if(liters < lowest) {
+				lowest = liters;
+			}
+			sum += liters;
+			
+		}
+		double average = sum / numberOfDays;
+
+		System.out.println("");//For spacing :)
+		System.out.println("----------------------------------------");
+		System.out.println("          STATISTICAL RESULTS           ");
+		System.out.println("----------------------------------------");
+		System.out.println("");//For spacing :)
+		
+		System.out.printf("Highest Water Intake: %.1f L", highest);
+		System.out.printf("Lowest Water Intake: %.1f L", lowest);
+		System.out.printf("Average Water Intake: %.1f L", average);
+		
+		System.out.println("");//For spacing :)
+		System.out.println("----------------------------------------");
+		System.out.println("              END OF REPORT             ");
+		System.out.println("----------------------------------------");
+	}
+}
