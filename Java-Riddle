@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class Riddle {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("I speak without a mouth and hear without ears. I have no body, but I come alive with the wind. What am I? ");
+
+        // Read user input as text
+        String answer = scanner.nextLine().trim().toLowerCase();
+
+        if (answer.equals("echo")) {
+            System.out.println("Your answer is correct!");
+            System.out.println("Congrats! You solved the riddle!");
+        } else {
+            System.out.println("Incorrect. Try again!");
+        }
+
+        scanner.close();
+    }
+}
